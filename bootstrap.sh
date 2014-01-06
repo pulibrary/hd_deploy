@@ -12,7 +12,7 @@ fi
 # fi
 
 # Ruby
-source /vagrant/install_ruby-2.0.0.sh
+/vagrant/install_ruby-2.0.0.sh
 
 # RubyGems
-source /vagrant/install_rubygems-2.2.0.sh 
+/vagrant/install_rubygems-2.2.0.sh 

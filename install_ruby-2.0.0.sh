@@ -25,13 +25,14 @@ if which ruby > /dev/null ; then
 	fi  
 fi
 		
-echo "Install ruby 2.0 from source"
-mkdir -p /opt/install 
+echo "Install Rugy from source"
+mkdir -p /opt/install
 cd /opt/install
-[[ `md5sum /opt/install/ruby-2.0.0-p353.tar.gz` == 78282433fb697dd3613613ff55d734c1 ]] && wget http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz 
-tar xvzf ruby-2.0.0-p353.tar.gz  
-cd ruby-2.0.0-p353  
-./configure  
-make  
-make install  
-echo "ruby 2.0 installed"
+## See if we've downloaded the source tarbal and the checksum matches; otherwise download it
+[[ -e "/opt/install/ruby-2.0.0-p353.tar.gz" && `md5sum /opt/install/ruby-2.0.0-p353.tar.gz` == "78282433fb697dd3613613ff55d734c1"* ]] || wget -c http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz
+tar xvzf ruby-2.0.0-p353.tar.gz
+cd ruby-2.0.0-p353
+./configure
+make
+make install
+echo "Ruby $(ruby -v) installed successfully"
