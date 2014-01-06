@@ -18,4 +18,8 @@ fi
 /vagrant/install_rubygems-2.2.0.sh
 
 # Java
-/vagrant/install_java-1.7.sh 
+/vagrant/install_java-1.7.sh
+
+# Tomcat
+/vagrant/install_tomcat.sh 
+ 
