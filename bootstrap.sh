@@ -15,4 +15,7 @@ fi
 /vagrant/install_ruby-2.0.0.sh
 
 # RubyGems
-/vagrant/install_rubygems-2.2.0.sh 
+/vagrant/install_rubygems-2.2.0.sh
+
+# Java
+/vagrant/install_java-1.7.sh 
