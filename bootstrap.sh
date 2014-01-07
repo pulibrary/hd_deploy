@@ -22,4 +22,7 @@ fi
 
 # Tomcat
 /vagrant/install_tomcat.sh 
+
+# MySQL
+/vagrant/install_mysql-5.6.sh
  
