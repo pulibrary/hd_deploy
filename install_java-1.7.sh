@@ -15,7 +15,7 @@ else
 # wrong version or no java installed 
 	echo "Updating java"
 	# try package update
-	if yum install java-1.7.0-openjdk-devel -y | grep -A 1 '^Installed:' | grep -q java-1.7 ; then
+	if yum install java-1.7.0-openjdk-devel -y | tee /dev/tty | grep -A 1 '^Installed:' | grep -q java-1.7 ; then
 	# Updated successfully
 		echo "Java version 1.7.x installed successfully"
 		exit 0
