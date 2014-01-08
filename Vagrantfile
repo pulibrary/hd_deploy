@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
+  config.vm.box_url = "https://github.com/mark-dce/vagrant-centos/releases/download/v6.5.3-rc1/centos65-x86_64-20140107.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -29,7 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Bridged networks make the machine appear as another physical device on
   # your network.
   config.vm.network :public_network, :bridge => "en1: Wi-Fi (AirPort)"
-  config.vm.hostname = "hydra.local"
+  config.vm.hostname = "hydra"
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
@@ -50,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = true
  
     # Use VBoxManage to customize the VM. For example to change memory:
-    vb.customize ["modifyvm", :id, "--memory", "3096"]
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
   #
   # View the documentation for the provider you're using for more
