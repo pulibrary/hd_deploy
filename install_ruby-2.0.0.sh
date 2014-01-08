@@ -6,6 +6,9 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
+# temporary patch until Centos image fixed
+yum install wget -y
+
 # see if ruby is installed
 if which ruby > /dev/null ; then
 	#check if it's the version we want
@@ -25,7 +28,7 @@ if which ruby > /dev/null ; then
 	fi  
 fi
 		
-echo "Install Rugy from source"
+echo "Install Ruby from source"
 mkdir -p /opt/install
 cd /opt/install
 ## See if we've downloaded the source tarbal and the checksum matches; otherwise download it
