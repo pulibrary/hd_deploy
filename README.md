@@ -34,4 +34,4 @@ su root -c 'bash /vagrant/bootstrap.sh'  # sudo may not work due to secure_path 
     ```
 
 ### NOTES  
-The scripts have been specifically tested for use against systems built using https://github.com/mark-dce/vagrant-centos.  YMMV using other Centos installs.
+The scripts have been specifically tested for use against Centos systems built using https://github.com/mark-dce/vagrant-centos.  YMMV using other Centos installs.  Future work is planned to address Ubuntu installs.
