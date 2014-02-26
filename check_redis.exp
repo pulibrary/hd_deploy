@@ -1,0 +1,13 @@
+#!/usr/bin/expect
+
+spawn bash
+expect "*"
+send "redis-cli ping\r"
+expect "^PONG$"
+send_user "redis client working"
+expect "*"
+send "redis-cli save\r"
+expect "^OK$"
+send_user "redis client saved"
+expect eof
+

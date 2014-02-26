@@ -11,6 +11,9 @@ fi
 #         exit 0
 # fi
 
+# Environment variables
+/vagrant/set_variables.sh
+
 # Package prerequisites
 /vagrant/install_packages.sh
 
@@ -33,4 +36,10 @@ fi
 
 # Fedora
 /vagrant/install_fedora.sh
+
+# Solr
+/vagrant/install_solr.sh
+
+# Redis
+/vagrant/install_redis.sh
 

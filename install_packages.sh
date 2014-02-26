@@ -6,9 +6,6 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-# set the rails environment
-echo "RAILS_ENV=production" | sudo tee -a /etc/environment && source /etc/environment
-
 # update CentOS
 yum update -y && yum upgrade -y
 
