@@ -7,7 +7,6 @@ if [ "$EUID" -ne "0" ] ; then
 fi
 
 yum install tomcat6 tomcat6-webapps tomcat6-admin-webapps -y
-usermod -G tomcat -a $USER
 chkconfig tomcat6 on
-sudo service tomcat6 restart
+service tomcat6 restart
 

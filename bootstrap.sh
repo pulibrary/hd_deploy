@@ -11,11 +11,16 @@ fi
 #         exit 0
 # fi
 
+# Package prerequisites
+/vagrant/install_packages.sh
+
 # Ruby
-/vagrant/install_ruby-2.0.0.sh
+# posted version /vagrant/install_ruby-2.0.0-p353.sh
+# most recent update
+/vagrant/install_ruby-2.0.0-p451.sh
 
 # RubyGems
-/vagrant/install_rubygems-2.2.0.sh
+/vagrant/install_rubygems-2.0.5.sh
 
 # Java
 /vagrant/install_java-1.7.sh
@@ -25,4 +30,7 @@ fi
 
 # MySQL
 /vagrant/install_mysql-5.6.sh
- 
+
+# Fedora
+/vagrant/install_fedora.sh
+
