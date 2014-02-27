@@ -10,7 +10,7 @@ fi
 if which gem &> /dev/null ; then
 	echo "RubyGems Installed"
 	#check if it's the version we want
-	if [[ `gem -v`  = "2.2.0" ]] ; then	
+	if [[ `gem -v`  = "2.0.5" ]] ; then	
 		# we've got the right version, nothing else to do!!!
 		echo "RubyGems version $(gem -v) already installed"
 		exit 0
@@ -18,7 +18,7 @@ if which gem &> /dev/null ; then
 		# wrong version installed 
 		echo "Updating rubygems"
 		# try gem update
-		if echo "gem update --system 2.2.0" | grep -q '^RubyGems 2.\S\+ installed' ; then
+		if echo "gem update --system 2.0.5" | grep -q '^RubyGems 2.\S\+ installed' ; then
 		# Updated successfully
 			echo "RubyGems $(gem -v) installed successfully"
 			exit 0
@@ -35,9 +35,12 @@ fi
 echo "Install RugyGems from source"
 mkdir -p /opt/install 
 cd /opt/install
-## See if we've downloaded the source tarbal and the checksum matches; otherwise download it
-[[ -e "/opt/install/v2.2.0" && `md5sum /opt/install/v2.2.0` == "8848c1af8748aade75b951adfe6e6dd6"* ]] || wget -c https://github.com/rubygems/rubygems/archive/v2.2.0.tar.gz
-tar xvzf v2.2.0
-cd rubygems-2.2.0
+## See if we've downloaded the source tarball and the checksum matches; 
+# otherwise download it
+wget https://github.com/rubygems/rubygems/archive/v2.0.5.tar.gz 
+# this one didn't resolve - https://codeload.github.com/rubygems/rubygems/tar.gz/v2.0.5
+# also, don't need -c on wget
+tar xvzf v2.0.5.tar.gz
+cd rubygems-2.0.5
 ruby setup.rb 
 echo "RubyGems $(gem -v) installed successfully"

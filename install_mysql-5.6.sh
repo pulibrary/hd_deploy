@@ -6,18 +6,20 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
+#install mysql version not available in yum repo
 mkdir -p /opt/install && cd /opt/install
 wget -c http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
 rpm -ivh mysql-community-release-el6-5.noarch.rpm 
 yum install mysql-server -y
-# service mysqld start
-chkconfig mysqld on
-#service mysqld stop  # moved secure setup to avoid stop/restar
-cp -a /var/lib/mysql/ /opt/
-#mkdir /etc/mysql # not sure mysql will look here for config files..
-#mv /etc/my.cnf /etc/mysql/ # see above
 
-# Use SED to pdate my.cnf defaults
+# set mysql to start automatically on reboot
+chkconfig mysqld on
+ 
+# move mysql to /opt
+cp -a /var/lib/mysql/ /opt/
+ls -la /opt
+
+# Use SED to update my.cnf defaults
 sed '
 /datadir\s*=/ d
 /character_set_server\s*=/ d
@@ -27,8 +29,7 @@ datadir = /opt/mysql \
 character_set_server = utf8 \
 default-storage-engine = InnoDB' -i.bak /etc/my.cnf
 
-#chown -R mysql:mysql /opt/mysql # doesn't appear to be necessary if you cp -a above
-
+# start mysql and run through the secure installation
 service mysqld start
 /usr/bin/mysql_secure_installation < /vagrant/mysql_secure_non-secure_defaults.txt
 mysql -u root -ppassword < /vagrant/mysql_fedora_tables.txt 
