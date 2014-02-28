@@ -13,8 +13,6 @@ case $(id -u) in
 
 # Default case - run script normally
 echo running main script
-exit 0
-
 
 mkdir -p /opt/install && cd /opt/install
 
