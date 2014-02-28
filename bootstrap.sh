@@ -23,7 +23,7 @@ fi
 /vagrant/install_ruby-2.0.0-p451.sh
 
 # RubyGems
-/vagrant/install_rubygems-2.0.5.sh
+/vagrant/install_rubygems-2.2.2.sh
 
 # Java
 /vagrant/install_java-1.7.sh
@@ -42,4 +42,10 @@ fi
 
 # Redis
 /vagrant/install_redis.sh
+
+# FFmpeg
+/vagrant/install_ffmpeg.sh
+
+# FITS
+/vagrant/install_fits.sh
 
