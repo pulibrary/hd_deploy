@@ -10,10 +10,10 @@ fi
 apt-get install tomcat7 -y
 cp /etc/default/tomcat7 /etc/default/tomcat7.bak
 
-user="TOMCAT7_USER=tomcat7"
-group="TOMCAT7_GROUP=tomcat7"
-java_home="JAVA_HOME=/usr/lib/jvm/usr/lib/jvm/openjdk-7-jdk"
-java_opts="JAVA_OPTS=\"-Djava.awt.headless=true\
+user="tomcat7"
+group="tomcat7"
+java_home="/usr/lib/jvm/java-7-openjdk-amd64"
+java_opts="\"-Djava.awt.headless=true\
  -XX:+UseG1GC\
  -XX:+UseCompressedOops\
  -XX:-UseLargePagesIndividualAllocation\
@@ -23,10 +23,9 @@ java_opts="JAVA_OPTS=\"-Djava.awt.headless=true\
  -server\""
 
 echo "# A backup of the original file with addition options is at /etc/default/tomcat7.bak
-$user
-$group
-$java_home
-$java_opts
-" > /etc/default/tomcat7
+TOMCAT7_USER=$user
+TOMCAT7_GROUP=$group
+JAVA_HOME=$java_home
+JAVA_OPTS=$java_opts" > /etc/default/tomcat7
 
 service tomcat7 restart
