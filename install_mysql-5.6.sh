@@ -6,10 +6,8 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-apt-get install mysql-server -y
-
-# set mysql to start automatically on reboot
-#chkconfig mysqld on
+export DEBIAN_FRONTEND=noninteractive
+apt-get -q -y install mysql-server
 
 # move mysql to /opt
 #cp -a /var/lib/mysql/ /opt/
@@ -25,6 +23,6 @@ default-storage-engine = InnoDB' -i.bak /etc/mysql/my.cnf
 
 # start mysql and run through the secure installation
 #sudo service mysql stop
-service mysql start
+#service mysql start
 /usr/bin/mysql_secure_installation < /vagrant/mysql_secure_non-secure_defaults.txt
 mysql -u root -ppassword < /vagrant/mysql_fedora_tables.txt 
