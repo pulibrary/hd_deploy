@@ -41,7 +41,7 @@ fi
 #/vagrant/install_solr.sh
 
 # Redis
-# /vagrant/install_redis.sh
+/vagrant/install_redis.sh
 
 # FITS
 #/vagrant/install_fits.sh

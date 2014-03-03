@@ -10,7 +10,38 @@ fi
 apt-get update -y && apt-get upgrade -y
 
 # install other necessary libraries
-apt-get install build-essential git git-core curl openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion pkg-config libmagickwand-dev imagemagick libcurl4-openssl-dev apache2-prefork-dev libxvidcore-dev -y
+apt-get install -y \
+  apache2-prefork-dev \
+  autoconf \
+  automake \
+  bison \
+  build-essential \
+  curl \
+  git \
+  git-core \
+  imagemagick \
+  libc6-dev \
+  libcurl4-openssl-dev \
+  libmagickwand-dev \
+  libreadline6 \
+  libreadline6-dev \
+  libsqlite3-dev \
+  libssl-dev \
+  libtool \
+  libxml2-dev \
+  libxslt-dev \
+  libxvidcore-dev \
+  libyaml-dev \
+  ncurses-dev \
+  openssl \
+  pkg-config \
+  sqlite3 \
+  subversion \
+  unzip \
+  zlib1g \
+  zlib1g-dev
+
+
 
 # expect is necessary for fedora install script
 apt-get install expect -y
