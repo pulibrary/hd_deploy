@@ -21,21 +21,14 @@ cp src/redis-cli /usr/local/bin/
 # create the necessary directories
 mkdir -p /etc/redis /var/redis /var/redis/6379
 
-# begin redis init script with chkconfig
-echo "# added for chkconfig compliance
-# chkconfig: 2345 95 20
-# description: redis_6379
-# Starts the redis server
-# processname: redis_6379" > /etc/rc.d/init.d/redis_6379
-
 # add the body of the init script
-cat utils/redis_init_script >> /etc/rc.d/init.d/redis_6379
+cp utils/redis_init_script >> /etc/init.d/redis_6379
 
 # make redis script executable
-chmod +x /etc/rc.d/init.d/redis_6379
+chmod +x /etc/init.d/redis_6379
 
-# add redis to chkconfig
-chkconfig --add redis_6379
+# add to init
+update-rc.d redis_6379 defaults
 
 # create the config file
 cp redis.conf /etc/redis/6379.conf
@@ -47,4 +40,3 @@ sed 's/^\(loglevel\ \)verbose.*$/\1notice/' -i /etc/redis/6379.conf
 sed 's#^\(dir\ \).*$#\1/var/redis/6379#' -i /etc/redis/6379.conf
 
 service redis_6379 start
-
