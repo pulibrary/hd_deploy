@@ -6,7 +6,5 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-yum install tomcat6 tomcat6-webapps tomcat6-admin-webapps -y
-chkconfig tomcat6 on
-service tomcat6 restart
-
+apt-get install tomcat7 -y
+service tomcat7 restart
