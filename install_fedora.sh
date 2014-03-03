@@ -23,7 +23,7 @@ else
 fi
 
 # add the vagrant user to the tomcat group
-usermod -G tomcat -a vagrant
+usermod -G tomcat7 -a vagrant
 # check that this worked
 if
 	[[ $(id vagrant) == *tomcat* ]]
