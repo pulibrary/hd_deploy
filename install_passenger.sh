@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -e
+
+if [ "$EUID" -ne "0" ] ; then
+        echo "Script must be run as root." >&2
+        exit 1
+fi
+
+# Follow this:
+# http://www.modrails.com/documentation/Users%20guide%20Apache.html#install_on_debian_ubuntu
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+
+# Add HTTPS support for APT. Our APT repository is stored on an HTTPS server.
+apt-get install apt-transport-https ca-certificates
+
+echo "deb https://oss-binaries.phusionpassenger.com/apt/passenger precise main" > /etc/apt/sources.list.d/passenger.list
+
+chown root: /etc/apt/sources.list.d/passenger.list
+chmod 600 /etc/apt/sources.list.d/passenger.list
+apt-get -y update
+apt-get -y install libapache2-mod-passenger
+
+# TODO -add app to apache
