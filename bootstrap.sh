@@ -38,11 +38,11 @@ fi
 /vagrant/install_fedora.sh
 
 # Solr
-#/vagrant/install_solr.sh
+/vagrant/install_solr.sh
 
 # Redis
 /vagrant/install_redis.sh
 
 # FITS
-#/vagrant/install_fits.sh
+/vagrant/install_fits.sh
 
