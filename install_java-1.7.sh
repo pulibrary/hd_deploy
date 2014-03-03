@@ -15,7 +15,8 @@ else
 # wrong version or no java installed 
 	echo "Updating java"
 # try package update
-	if apt-get install openjdk-7-jdk -y | tee /dev/tty | grep -A 1 '^Installed:' | grep -q java-1.7 ; then
+	apt-get install openjdk-7-jdk -y
+	if java -version 2>&1 | grep -q '^java version "1\.7\.' ; then	
 	# Updated successfully
 		echo "Java version 1.7.x installed successfully"
 		exit 0
