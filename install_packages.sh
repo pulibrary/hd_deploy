@@ -6,15 +6,12 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-# update CentOS
-yum update -y && yum upgrade -y
-
-# install Development Tools
-yum groupinstall "Development Tools" -y
+# update ubuntu
+apt-get update -y && apt-get upgrade -y
 
 # install other necessary libraries
-yum install screen wget curl-devel httpd-devel openssl-devel readline-devel ruby-devel sqlite-devel mysql-devel tcl ImageMagick-devel nasm libxml2-devel libxslt-devel libyaml-devel -y
+apt-get install build-essential git git-core curl openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion pkg-config libmagickwand-dev imagemagick libcurl4-openssl-dev apache2-prefork-dev libxvidcore-dev
 
 # expect is necessary for fedora install script
-yum install expect -y
+apt-get install expect -y
 
