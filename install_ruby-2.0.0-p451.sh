@@ -6,17 +6,14 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-# temporary patch until Centos image fixed
-yum install wget -y
-
 # see if ruby is installed
 if which ruby > /dev/null ; then
 	#check if it's the version we want
 	if [[ `ruby -v` != "ruby 2.0.0"* ]] ; then	
 		# remove the wrong version if it's found 
 		echo "Removing existing ruby"
-		# try yum
-		if yum remove ruby -y 2>&1 | grep -q "No Match for argument: ruby" ; then
+		# try apt-get
+		if apt-get remove ruby -y 2>&1 | grep -q "No Match for argument: ruby" ; then
 		# not installed using package manager, remove manually
 			echo "Ruby wasn't installed using your package manager, please try uninstalling it manually." >&2
 			exit 1
