@@ -20,16 +20,16 @@ fi
 # Ruby
 # posted version /vagrant/install_ruby-2.0.0-p353.sh
 # most recent update
-/vagrant/install_ruby-2.0.0-p451.sh
+/vagrant/install_ruby-2.1.sh
 
 # RubyGems
 /vagrant/install_rubygems-2.2.2.sh
 
 # Java
-# /vagrant/install_java-1.7.sh
+/vagrant/install_java-1.7.sh
 
 # Tomcat
-#/vagrant/install_tomcat.sh 
+/vagrant/install_tomcat.sh 
 
 # MySQL
 #/vagrant/install_mysql-5.6.sh
