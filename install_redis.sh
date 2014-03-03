@@ -21,11 +21,20 @@ cp src/redis-cli /usr/local/bin/
 # create the necessary directories
 mkdir -p /etc/redis /var/redis /var/redis/6379
 
-# add the body of the init script
-cp utils/redis_init_script >> /etc/init.d/redis_6379
+# add LSB info to the the init script
+echo "### BEGIN INIT INFO
+# Provides:          redis_6379
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start redis on port 6379 at boot time
+# Description:       Enable service provided by  daemon.
+### END INIT INFO" > /etc/init.d/redis_6379
+cat utils/redis_init_script >> /etc/init.d/redis_6379
 
 # make redis script executable
-chmod +x /etc/init.d/redis_6379
+chmod a+x /etc/init.d/redis_6379
 
 # add to init
 update-rc.d redis_6379 defaults
