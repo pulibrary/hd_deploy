@@ -29,23 +29,20 @@ fi
 /vagrant/install_java-1.7.sh
 
 # Tomcat
-/vagrant/install_tomcat.sh 
+#/vagrant/install_tomcat.sh 
 
 # MySQL
-/vagrant/install_mysql-5.6.sh
+#/vagrant/install_mysql-5.6.sh
 
 # Fedora
-/vagrant/install_fedora.sh
+#/vagrant/install_fedora.sh
 
 # Solr
-/vagrant/install_solr.sh
+#/vagrant/install_solr.sh
 
 # Redis
-/vagrant/install_redis.sh
-
-# FFmpeg
-/vagrant/install_ffmpeg.sh
+#/vagrant/install_redis.sh
 
 # FITS
-/vagrant/install_fits.sh
+#/vagrant/install_fits.sh
 

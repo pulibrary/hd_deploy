@@ -10,11 +10,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "Centos65"
+  config.vm.box = "Ubuntu 12.04 LTS"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "https://github.com/mark-dce/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140108.box"
+  config.vm.box_url = "http://diglib3.princeton.edu/boxes/precise-server-cloudimg-amd64-vagrant-disk1.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
