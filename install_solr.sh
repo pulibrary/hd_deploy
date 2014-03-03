@@ -16,7 +16,7 @@ fi
 
 # get the solr installer
 mkdir -p /opt/install && cd /opt/install
-wget http://archive.apache.org/dist/lucene/solr/4.2.0/solr-4.2.0.tgz
+wget -c http://archive.apache.org/dist/lucene/solr/4.2.0/solr-4.2.0.tgz
 tar xvzf solr-4.2.0.tgz
 
 # check the /opt directory
@@ -46,14 +46,14 @@ cat > /opt/solr/$HYDRA_NAME/$HYDRA_NAME.xml <<EOF
 EOF
 
 # chown /opt/fedora and /opt/solr
-chown -R tomcat:tomcat /opt/fedora
-chown -R tomcat:tomcat /opt/solr
+chown -R tomcat7:tomcat7 /opt/fedora
+chown -R tomcat7:tomcat7 /opt/solr
 
 # simlink tomcat to the solr xml file
-ln -s /opt/solr/$HYDRA_NAME/$HYDRA_NAME.xml /etc/tomcat6/Catalina/localhost/$HYDRA_NAME.xml
+ln -s /opt/solr/$HYDRA_NAME/$HYDRA_NAME.xml /etc/tomcat7/Catalina/localhost/$HYDRA_NAME.xml
 
 # restart tomcat
-service tomcat6 restart
+service tomcat7 restart
 
 # check tomcat, fedora, and solr
 # TODO write a test for this - expect? 
