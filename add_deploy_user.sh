@@ -6,4 +6,4 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-useradd -d /home/deploy -s /bin/bash deploy
+useradd -m -d /home/deploy -s /bin/bash deploy
