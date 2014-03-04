@@ -46,3 +46,6 @@ fi
 # FITS
 /vagrant/install_fits.sh
 
+# passenger
+/vagrant/install_passenger.sh
+
