@@ -43,8 +43,8 @@ cp ./solr-4.6.1/example/cloud-scripts/log4j.properties /usr/share/tomcat7/lib/
 # create the project xml file
 cat > /opt/solr/$HYDRA_NAME/$HYDRA_NAME.xml <<EOF
 <?xml version="1.0" encoding="utf-8"?>  
-<Context docBase="/opt/solr/hydradam/solr-4.6.1.war" debug="0" crossContext="true">  
-    <Environment name="solr/home" type="java.lang.String" value="/opt/solr/hydradam" override="true"/>  
+<Context docBase="/opt/solr/pul-store/solr-4.6.1.war" debug="0" crossContext="true">  
+    <Environment name="solr/home" type="java.lang.String" value="/opt/solr/pul-store" override="true"/>  
 </Context>
 EOF
 
