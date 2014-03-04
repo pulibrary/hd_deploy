@@ -14,6 +14,9 @@ fi
 # Environment variables
 /vagrant/set_variables.sh
 
+# Add the deploy user
+/vagrant/add_deploy_user.sh
+
 # Package prerequisites
 /vagrant/install_packages.sh
 
