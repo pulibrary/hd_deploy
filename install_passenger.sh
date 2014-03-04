@@ -6,20 +6,21 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-# Follow this:
-# http://www.modrails.com/documentation/Users%20guide%20Apache.html#install_on_debian_ubuntu
+gem install passenger
+passenger-install-apache2-module
+# ENTER
+# ENTER
+# ENTER
 
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+echo "<IfModule mod_passenger.c>
+    PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.37
+    PassengerDefaultRuby /usr/local/bin/ruby
+  </IfModule>" > /etc/apache2/mods-available/passenger.conf
 
-# Add HTTPS support for APT. Our APT repository is stored on an HTTPS server.
-apt-get install apt-transport-https ca-certificates
+echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.37/buildout/apache2/mod_passenger.so
+" > /etc/apache2/mods-available/passenger.load
 
-echo "deb https://oss-binaries.phusionpassenger.com/apt/passenger precise main" > /etc/apt/sources.list.d/passenger.list
-
-chown root: /etc/apt/sources.list.d/passenger.list
-chmod 600 /etc/apt/sources.list.d/passenger.list
-apt-get -y update
-apt-get -y install libapache2-mod-passenger
+a2enmod passenger
 
 echo "<VirtualHost *:80>
   ServerName pulstore.princeton.edu
@@ -36,11 +37,4 @@ echo "<VirtualHost *:80>
 a2ensite 001-pulstore
 a2dissite 000-default
 
-# In /etc/apache2/mods-available/passenger.conf 
-# change PassengerDefaultRuby to /usr/local/bin/ruby
-
-# Change /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini
-# change ruby_libdir to /usr/local/lib/ruby/vendor_ruby
-
 service apache2 restart
-

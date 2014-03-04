@@ -12,6 +12,7 @@ apt-get update -y && apt-get upgrade -y
 # install other necessary libraries
 apt-get install -y \
   apache2-prefork-dev \
+  apache2-mpm-worker \
   autoconf \
   automake \
   bison \
