@@ -35,5 +35,12 @@ echo "<VirtualHost *:80>
 
 a2ensite 001-pulstore
 a2dissite 000-default
+
+# In /etc/apache2/mods-available/passenger.conf 
+# change PassengerDefaultRuby to /usr/local/bin/ruby
+
+# Change /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini
+# change ruby_libdir to /usr/local/lib/ruby/vendor_ruby
+
 service apache2 restart
 

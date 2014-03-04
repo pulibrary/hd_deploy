@@ -22,6 +22,7 @@ apt-get install -y \
   imagemagick \
   libc6-dev \
   libcurl4-openssl-dev \
+  libffi-dev \
   libmagickwand-dev \
   libreadline6 \
   libreadline6-dev \
