@@ -2,13 +2,12 @@
 set -e
 
 cd /opt
-su vagrant
 git clone --recursive https://github.com/pulibrary/pul-store
 cd pul-store
 git checkout development
 gem install bundler
 bundle --deployment
-rake db:create
-rake db:migrate
+bundle exec rake db:create
+bundle exec rake db:migrate
 
 
