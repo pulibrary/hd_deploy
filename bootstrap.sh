@@ -49,3 +49,6 @@ fi
 # passenger
 /vagrant/install_passenger.sh
 
+# code
+/vagrant/install_code.sh
+
