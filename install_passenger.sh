@@ -21,4 +21,19 @@ chmod 600 /etc/apt/sources.list.d/passenger.list
 apt-get -y update
 apt-get -y install libapache2-mod-passenger
 
-# TODO -add app to apache
+echo "<VirtualHost *:80>
+  ServerName pulstore.princeton.edu
+  PassengerRuby /usr/local/bin/ruby
+  PassengerAppRoot /opt/pul-store
+  DocumentRoot /opt/pul-store/public
+  <Directory /opt/pul-store/public>
+    AllowOverride all
+    # MultiViews must be turned off.
+    Options -MultiViews
+  </Directory>
+</VirtualHost>" > /etc/apache2/sites-available/001-pulstore
+
+a2ensite 001-pulstore
+# a2dissite 000-default
+service apache2 restart
+
