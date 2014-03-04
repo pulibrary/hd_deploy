@@ -10,7 +10,7 @@ fi
 echo "INSTALL_USER=vagrant" | sudo tee -a /etc/environment
 
 # set the hydra name
-echo "HYDRA_NAME=hydradam" | sudo tee -a /etc/environment 
+echo "HYDRA_NAME=pul-store" | sudo tee -a /etc/environment 
 
 # set the rails environment
 echo "RAILS_ENV=production" | sudo tee -a /etc/environment
