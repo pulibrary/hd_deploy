@@ -34,6 +34,6 @@ echo "<VirtualHost *:80>
 </VirtualHost>" > /etc/apache2/sites-available/001-pulstore
 
 a2ensite 001-pulstore
-# a2dissite 000-default
+a2dissite 000-default
 service apache2 restart
 
