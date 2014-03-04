@@ -3,7 +3,7 @@ set -e
 
 cd /opt
 su vagrant
-git clone https://github.com/pulibrary/pul-store
+git clone --recursive https://github.com/pulibrary/pul-store
 cd pul-store
 git checkout development
 gem install bundler
