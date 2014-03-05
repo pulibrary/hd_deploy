@@ -18,6 +18,7 @@ apt-get install -y \
   bison \
   build-essential \
   curl \
+  cifs-utils \
   git \
   git-core \
   imagemagick \
