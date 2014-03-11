@@ -50,7 +50,7 @@ fi
 /vagrant/install_fits.sh
 
 # # passenger
-# /vagrant/install_passenger.sh
+/vagrant/install_passenger.sh
 
 # # code
 # /vagrant/install_code.sh
