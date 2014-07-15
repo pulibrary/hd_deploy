@@ -104,4 +104,7 @@ fi
 # # code
 if [ $BLACKLIGHT_ONLY -eq 0 ] ; then
 	/vagrant/install_code.sh
+else
+	/vagrant/install_blacklight.sh
 fi
+

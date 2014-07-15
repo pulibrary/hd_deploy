@@ -20,18 +20,9 @@ vagrant up
 # now you've got a fully configured Centos system with Hydra dependencies - check things out
 vagrant ssh
     ```  
-1. Pre-configured Centos system  
-    PREREQUISITES: Centos minimal install + misc stuff (to be identified later)
-    1. Clone this repo to the system
-    1. Change the directory
-    1. Run the install scripts as root
-    1. Once bootstrap is complete, you have a working set of Hydra dependencies installed  
 
-    ```shell
-git clone git@github.com:mark-dce/hd_deploy.git
-cd hd_deploy
-su root -c 'bash /vagrant/bootstrap.sh'  # sudo may not work due to secure_path issues
+ 2. Execute
     ```
-
-### NOTES  
-The scripts have been specifically tested for use against Centos systems built using https://github.com/mark-dce/vagrant-centos.  YMMV using other Centos installs.  Future work is planned to address Ubuntu installs.
+    APP_NAME="my_app" BLACKLIGHT_ONLY=1 vagrant up
+    ```
+Use BLACKLIGHT_ONLY=1 if you are only installing Blacklight and not Hydra.
