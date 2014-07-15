@@ -41,10 +41,10 @@ cp ./solr-4.9.0/example/lib/ext/*.jar /usr/share/tomcat7/lib/
 cp ./solr-4.9.0/example/cloud-scripts/log4j.properties /usr/share/tomcat7/lib/
 
 # create the project xml file
-cat > /opt/solr/$APP_NAME/$HYDRA_NAME.xml <<EOF
+cat > /opt/solr/$APP_NAME/$APP_NAME.xml <<EOF
 <?xml version="1.0" encoding="utf-8"?>  
-<Context docBase="/opt/solr/pul-store/solr-4.9.0.war" debug="0" crossContext="true">  
-    <Environment name="solr/home" type="java.lang.String" value="/opt/solr/pul-store" override="true"/>  
+<Context docBase="/opt/solr/$APP_NAME/solr-4.9.0.war" debug="0" crossContext="true">  
+    <Environment name="solr/home" type="java.lang.String" value="/opt/solr/$APP_NAME" override="true"/>  
 </Context>
 EOF
 
