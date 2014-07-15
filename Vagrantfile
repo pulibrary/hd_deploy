@@ -58,7 +58,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Enable shell provisioning to bootstrap VM 
   blacklight = "-b" if ENV['BLACKLIGHT_ONLY'] == 1
-  config.vm.provision :shell, :path => "bootstrap.sh #{blacklight} -n #{ENV['APP_NAME']} "
+  args = "#{blacklight} -n #{ENV['APP_NAME']} "
+  config.vm.provision :shell, path: "bootstrap.sh", args: args
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.

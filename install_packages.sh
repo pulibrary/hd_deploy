@@ -33,7 +33,7 @@ apt-get install -y \
   libtool \
   libxml2-dev \
   libxslt-dev \
-  libxvidcore-dev \
+  # libxvidcore-dev \
   libyaml-dev \
   ncurses-dev \
   openssl \
