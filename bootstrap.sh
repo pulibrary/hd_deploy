@@ -23,7 +23,8 @@ fi
 # Ruby
 # posted version /vagrant/install_ruby-2.0.0-p353.sh
 # most recent update
-/vagrant/install_ruby-2.1.sh
+/vagrant/install_ruby-2.1.2.sh
+
 
 # RubyGems
 /vagrant/install_rubygems-2.2.2.sh
@@ -38,16 +39,20 @@ fi
 /vagrant/install_mysql-5.6.sh
 
 # Fedora
-/vagrant/install_fedora.sh
+# /vagrant/install_fedora.sh
 
 # Solr
 /vagrant/install_solr.sh
 
 # Redis
-/vagrant/install_redis.sh
+# /vagrant/install_redis.sh
+
+
+# FFmpeg
+# /vagrant/install_ffmpeg.sh
 
 # FITS
-/vagrant/install_fits.sh
+# /vagrant/install_fits.sh
 
 # # passenger
 /vagrant/install_passenger.sh
