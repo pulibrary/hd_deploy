@@ -6,11 +6,17 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
+APP_NAME=$1
+if [ "$APP_NAME"x == "x" ] ; then
+		APP_NAME=pul-store
+fi
+
 # set the install user
 echo "INSTALL_USER=vagrant" | sudo tee -a /etc/environment
 
 # set the hydra name
-echo "HYDRA_NAME=pul-store" | sudo tee -a /etc/environment 
+echo "APP_NAME=$APP_NAME" | sudo tee -a /etc/environment 
+
 
 # set the rails environment
 echo "RAILS_ENV=production" | sudo tee -a /etc/environment
