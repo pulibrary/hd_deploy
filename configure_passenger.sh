@@ -13,28 +13,28 @@ passenger-install-apache2-module
 # ENTER
 
 echo "<IfModule mod_passenger.c>
-    PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.37
+    PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.46
     PassengerDefaultRuby /usr/local/bin/ruby
   </IfModule>" > /etc/apache2/mods-available/passenger.conf
 
-echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.37/buildout/apache2/mod_passenger.so
+echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.46/buildout/apache2/mod_passenger.so
 " > /etc/apache2/mods-available/passenger.load
 
 a2enmod passenger
 
 echo "<VirtualHost *:80>
-  ServerName pulstore.princeton.edu
+  ServerName $APP_NAME.princeton.edu # THIS IS PROBABLY WRONG
   PassengerRuby /usr/local/bin/ruby
-  PassengerAppRoot /opt/pul-store
-  DocumentRoot /opt/pul-store/public
-  <Directory /opt/pul-store/public>
+  PassengerAppRoot /opt/$APP_NAME
+  DocumentRoot /opt/$APP_NAME/public
+  <Directory /opt/$APP_NAME/public>
     AllowOverride all
     # MultiViews must be turned off.
     Options -MultiViews
   </Directory>
-</VirtualHost>" > /etc/apache2/sites-available/001-pulstore
+</VirtualHost>" > /etc/apache2/sites-available/001-$APP_NAME
 
-a2ensite 001-pulstore
+a2ensite 001-$APP_NAME
 a2dissite 000-default
 
 service apache2 restart

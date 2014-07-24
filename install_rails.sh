@@ -6,6 +6,4 @@ if [ "$EUID" -ne "0" ] ; then
         exit 1
 fi
 
-gem install passenger
-expect vagrant/install_passenger.exp
-
+gem install rails

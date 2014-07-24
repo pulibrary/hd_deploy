@@ -33,7 +33,6 @@ apt-get install -y \
   libtool \
   libxml2-dev \
   libxslt-dev \
-  libxvidcore-dev \
   libyaml-dev \
   ncurses-dev \
   openssl \
@@ -43,7 +42,7 @@ apt-get install -y \
   unzip \
   zlib1g \
   zlib1g-dev
-
+# libxvidcore-dev \
 
 
 # expect is necessary for fedora install script

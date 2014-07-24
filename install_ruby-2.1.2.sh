@@ -7,7 +7,7 @@ if [ "$EUID" -ne "0" ] ; then
 fi
 
 # temporary patch until Centos image fixed
-yum install wget -y
+apt-get install wget -y
 
 # see if ruby is installed
 if which ruby > /dev/null ; then
@@ -15,8 +15,8 @@ if which ruby > /dev/null ; then
 	if [[ `ruby -v` != "ruby 2.1.2"* ]] ; then	
 		# remove the wrong version if it's found 
 		echo "Removing existing ruby"
-		# try yum
-		if yum remove ruby -y 2>&1 | grep -q "No Match for argument: ruby" ; then
+		# try apt-get
+		if apt-get purge ruby -y 2>&1 | grep -q "No Match for argument: ruby" ; then
 		# not installed using package manager, remove manually
 			echo "Ruby wasn't installed using your package manager, please try uninstalling it manually." >&2
 			exit 1
@@ -32,7 +32,7 @@ echo "Install Ruby from source"
 mkdir -p /opt/install
 cd /opt/install
 ## See if we've downloaded the source tarbal and the checksum matches; otherwise download it
-[[ -e "/opt/install/ruby-2.1.2.tar.gz" && `md5sum /opt/install/ruby-2.1.2.tar.gz` == "9227787a9636551f1749ee8394b5ffe5"* ]] || wget -c http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.1.2.tar.gz
+[[ -e "/opt/install/ruby-2.1.2.tar.gz" && `md5sum /opt/install/ruby-2.1.2.tar.gz` == "9227787a9636551f1749ee8394b5ffe5"* ]] || wget -c http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz
 tar xvzf ruby-2.1.2.tar.gz
 cd ruby-2.1.2
 ./configure

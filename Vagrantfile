@@ -29,7 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Bridged networks make the machine appear as another physical device on
   # your network.
   config.vm.network :public_network, :bridge => "en1: Wi-Fi (AirPort)"
-  config.vm.hostname = "hydra"
+  config.vm.hostname = ENV['APP_NAME']
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
@@ -57,7 +57,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # information on available options.
 
   # Enable shell provisioning to bootstrap VM 
-  config.vm.provision :shell, :path => "bootstrap.sh"
+  blacklight = "-b" if ENV['BLACKLIGHT_ONLY'] == 1
+  args = "#{blacklight} -n #{ENV['APP_NAME']} "
+  config.vm.provision :shell, path: "bootstrap.sh", args: args
+
+  config.vm.network :forwarded_port, host: 4444, guest: 80                                                                                                                                                                                                                                                                                                              
+  config.vm.network :forwarded_port, host: 4555, guest: 3000
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
