@@ -25,7 +25,7 @@ fi
 # fi
 
 BLACKLIGHT_ONLY=0
-APP_NAME=""
+#APP_NAME=""
 
 
 while getopts "bn:" opt; do
@@ -52,8 +52,8 @@ if [ "$APP_NAME"x = "x" ] ; then
 	exit 64
 fi
 
-echo $BLACKLIGHT_ONLY
-echo $APP_NAME
+echo "blacklight only: $BLACKLIGHT_ONLY"
+echo "app name: $APP_NAME"
 
 # Add the deploy user
 /vagrant/add_deploy_user.sh
