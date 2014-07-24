@@ -24,11 +24,9 @@ fi
 #         exit 0
 # fi
 
-# Environment variables
-/vagrant/set_variables.sh 
-
 BLACKLIGHT_ONLY=0
 APP_NAME=""
+
 
 while getopts "bn:" opt; do
 	case $opt in
@@ -43,6 +41,9 @@ while getopts "bn:" opt; do
 	;;
 	esac
 done
+
+# Environment variables
+/vagrant/set_variables.sh 
 
 if [ "$APP_NAME"x = "x" ] ; then
 	echo "Please provide a name for the application"

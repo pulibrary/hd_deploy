@@ -10,6 +10,6 @@ apt-get -q -y install postgresql
 
 
 # set up orangelight user for postgresql
-su - postgres
-psql -c "CREATE ROLE orangelight with createdb login password 'orange';"
-exit
+su - postgres <<'EOF'
+psql -c "CREATE ROLE orangelight with createdb login password 'orange';" 
+EOF
