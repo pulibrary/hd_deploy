@@ -61,6 +61,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   args = "#{blacklight} -n #{ENV['APP_NAME']} "
   config.vm.provision :shell, path: "bootstrap.sh", args: args
 
+  config.vm.network :forwarded_port, host: 4444, guest: 80                                                                                                                                                                                                                                                                                                              
+  config.vm.network :forwarded_port, host: 4555, guest: 3000
+
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in

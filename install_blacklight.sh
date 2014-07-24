@@ -3,4 +3,5 @@ set -e
 
 cd /opt
 
-rails new $APP_NAME -m https://raw.github.com/projectblacklight/blacklight/master/template.demo.rb
+echo "Insert orangelight capistrano magic here"
+#rails new $APP_NAME -m https://raw.github.com/projectblacklight/blacklight/master/template.demo.rb

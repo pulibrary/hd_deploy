@@ -38,7 +38,7 @@ cp -r ./solr-4.9.0/example/solr/collection1 /opt/solr/$APP_NAME/collection1
 cp /opt/solr/$APP_NAME/collection1/conf/lang/stopwords_en.txt /opt/solr/$APP_NAME/collection1/conf/
 # for v 4.3 
 cp ./solr-4.9.0/example/lib/ext/*.jar /usr/share/tomcat7/lib/ 
-cp ./solr-4.9.0/example/cloud-scripts/log4j.properties /usr/share/tomcat7/lib/
+cp ./solr-4.9.0/example/scripts/cloud-scripts/log4j.properties /usr/share/tomcat7/lib/
 
 # create the project xml file
 cat > /opt/solr/$APP_NAME/$APP_NAME.xml <<EOF
@@ -49,7 +49,7 @@ cat > /opt/solr/$APP_NAME/$APP_NAME.xml <<EOF
 EOF
 
 # chown /opt/fedora and /opt/solr
-chown -R tomcat7:tomcat7 /opt/fedora
+# chown -R tomcat7:tomcat7 /opt/fedora
 chown -R tomcat7:tomcat7 /opt/solr
 
 # simlink tomcat to the solr xml file

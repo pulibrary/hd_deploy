@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#Use to install necessary components for applications.
+#Use to install necessary components for applications. Run on local machine.
 #
 # Options:
 #-b
@@ -67,7 +67,7 @@ echo $APP_NAME
 
 
 # RubyGems
-/vagrant/install_rubygems-2.2.2.sh
+/vagrant/install_rubygems-2.3.0.sh
 
 # Java
 /vagrant/install_java-1.7.sh
@@ -76,8 +76,14 @@ echo $APP_NAME
 /vagrant/install_tomcat.sh 
 
 # MySQL
+if [ $BLACKLIGHT_ONLY -eq 0 ] ; then
 /vagrant/install_mysql-5.6.sh
+fi
 
+# PostgreSQL
+if [ $BLACKLIGHT_ONLY -eq 1 ] ; then
+/vagrant/install_postgresql.sh
+fi
 
 # Fedora
 if [ $BLACKLIGHT_ONLY -eq 0 ] ; then

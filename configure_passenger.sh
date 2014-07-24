@@ -13,11 +13,11 @@ passenger-install-apache2-module
 # ENTER
 
 echo "<IfModule mod_passenger.c>
-    PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.37
+    PassengerRoot /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.46
     PassengerDefaultRuby /usr/local/bin/ruby
   </IfModule>" > /etc/apache2/mods-available/passenger.conf
 
-echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.37/buildout/apache2/mod_passenger.so
+echo "LoadModule passenger_module /usr/local/lib/ruby/gems/2.1.0/gems/passenger-4.0.46/buildout/apache2/mod_passenger.so
 " > /etc/apache2/mods-available/passenger.load
 
 a2enmod passenger
