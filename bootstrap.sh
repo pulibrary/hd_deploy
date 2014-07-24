@@ -25,7 +25,7 @@ fi
 # fi
 
 BLACKLIGHT_ONLY=0
-#APP_NAME=""
+
 
 
 while getopts "bn:" opt; do
@@ -42,8 +42,9 @@ while getopts "bn:" opt; do
 	esac
 done
 
-# Environment variables
-/vagrant/set_variables.sh 
+echo "blacklight only: $BLACKLIGHT_ONLY"
+echo "app name: $APP_NAME"
+
 
 if [ "$APP_NAME"x = "x" ] ; then
 	echo "Please provide a name for the application"
@@ -52,8 +53,23 @@ if [ "$APP_NAME"x = "x" ] ; then
 	exit 64
 fi
 
-echo "blacklight only: $BLACKLIGHT_ONLY"
-echo "app name: $APP_NAME"
+echo "INSTALL_USER=vagrant" | sudo tee -a /etc/environment
+
+# set the hydra name
+echo "APP_NAME=$APP_NAME" | sudo tee -a /etc/environment 
+
+
+# set the rails environment
+echo "RAILS_ENV=production" | sudo tee -a /etc/environment
+
+# load the variables we just set
+source /etc/environment
+
+# Environment variables - doing inline because of environment variable issues
+#/vagrant/set_variables.sh 
+
+
+
 
 # Add the deploy user
 /vagrant/add_deploy_user.sh
