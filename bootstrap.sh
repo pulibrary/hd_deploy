@@ -80,7 +80,7 @@ source /etc/environment
 # Ruby
 # posted version /vagrant/install_ruby-2.0.0-p353.sh
 # most recent update
-/vagrant/install_ruby-2.1.2.sh
+/vagrant/install_ruby-2.1.4.sh
 
 
 # RubyGems
