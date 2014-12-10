@@ -7,7 +7,7 @@ if [ "$EUID" -ne "0" ] ; then
 fi
 
 # check necessary variables
-#if $APP_NAME doesn't exist solr-4.9.0
+#if $APP_NAME doesn't exist solr-4.10.0
 #then
 #abort
 #else
@@ -16,8 +16,8 @@ fi
 
 # get the solr installer
 mkdir -p /opt/install && cd /opt/install
-wget -c http://archive.apache.org/dist/lucene/solr/4.9.0/solr-4.9.0.tgz
-tar xvzf solr-4.9.0.tgz
+wget -c http://archive.apache.org/dist/lucene/solr/4.10.0/solr-4.10.0.tgz
+tar xvzf solr-4.10.0.tgz
 
 # check the /opt directory
 ls -la /opt
@@ -31,19 +31,19 @@ mkdir -p /opt/solr /opt/solr/$APP_NAME /opt/solr/$APP_NAME/lib
 ls -la /opt/solr
 
 # copy the .war and .jar files 
-cp ./solr-4.9.0/dist/solr-4.9.0.war /opt/solr/$APP_NAME
-cp ./solr-4.9.0/dist/*.jar /opt/solr/$APP_NAME/lib
-cp -r ./solr-4.9.0/contrib /opt/solr/$APP_NAME/lib
-cp -r ./solr-4.9.0/example/solr/collection1 /opt/solr/$APP_NAME/collection1
+cp ./solr-4.10.0/dist/solr-4.10.0.war /opt/solr/$APP_NAME
+cp ./solr-4.10.0/dist/*.jar /opt/solr/$APP_NAME/lib
+cp -r ./solr-4.10.0/contrib /opt/solr/$APP_NAME/lib
+cp -r ./solr-4.10.0/example/solr/collection1 /opt/solr/$APP_NAME/collection1
 cp /opt/solr/$APP_NAME/collection1/conf/lang/stopwords_en.txt /opt/solr/$APP_NAME/collection1/conf/
 # for v 4.3 
-cp ./solr-4.9.0/example/lib/ext/*.jar /usr/share/tomcat7/lib/ 
-cp ./solr-4.9.0/example/scripts/cloud-scripts/log4j.properties /usr/share/tomcat7/lib/
+cp ./solr-4.10.0/example/lib/ext/*.jar /usr/share/tomcat7/lib/ 
+cp ./solr-4.10.0/example/scripts/cloud-scripts/log4j.properties /usr/share/tomcat7/lib/
 
 # create the project xml file
 cat > /opt/solr/$APP_NAME/$APP_NAME.xml <<EOF
 <?xml version="1.0" encoding="utf-8"?>  
-<Context docBase="/opt/solr/$APP_NAME/solr-4.9.0.war" debug="0" crossContext="true">  
+<Context docBase="/opt/solr/$APP_NAME/solr-4.10.0.war" debug="0" crossContext="true">  
     <Environment name="solr/home" type="java.lang.String" value="/opt/solr/$APP_NAME" override="true"/>  
 </Context>
 EOF
